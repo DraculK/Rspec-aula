@@ -34,12 +34,3 @@ jobs:
       run: |
         gem install bundler
         bundler install
-    - name: Create database
-      run: |
-        bundler exec rails db:create RAILS_ENV=test
-        bundler exec rails db:migrate RAILS_ENV=test
-    - name: Rails test
-      run: |
-        bundle exec rails db:setup
-        bundle exec rails test
-    
