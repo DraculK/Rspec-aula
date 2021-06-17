@@ -26,6 +26,6 @@ jobs:
 
     - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ env.RUBY_VERSION }}
+        ruby-version: 2.7.0
         bundler-cache: true
     
