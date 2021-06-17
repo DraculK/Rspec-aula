@@ -34,10 +34,16 @@ jobs:
       run: |
         gem install bundler
         bundler install
-    - name: Create database
+    
+    - name: Build and test with rspec
+      env:
+        RAILS_ENV: test
+        POSTGRES_HOST: localhost
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
+        RUBYOPT: "-W:no-deprecated -W:no-experimental"
       run: |
-        bundler exec rails db:create RAILS_ENV=test
-        bundler exec rails db:migrate RAILS_ENV=test
-    - name: Run tests
-      run: bundler exec rake
+        bundle exec rake db:setup
+        bundle exec rspec
     
