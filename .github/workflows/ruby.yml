@@ -34,4 +34,8 @@ jobs:
       run: |
         gem install bundler
         bundler install
+    - name: Rails test
+      run: |
+        bundle exec rails db:setup
+        bundle exec rails test
     
