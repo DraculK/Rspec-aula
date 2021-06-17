@@ -43,7 +43,5 @@ jobs:
         POSTGRES_PASSWORD: postgres
         POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         RUBYOPT: "-W:no-deprecated -W:no-experimental"
-      run: |
-        bundle exec rake db:setup
-        bundle exec rspec
+      
     
