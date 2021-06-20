@@ -9,7 +9,7 @@ RSpec.describe Product, type: :model do
     end
 
     it 'when the name is nil' do 
-        produto = build(:product, name:'', category_id: categoria.id)
+        produto = build(:product, name:'5555555555555555555', category_id: categoria.id)
         expect(produto).to_not be_valid
     end
 
